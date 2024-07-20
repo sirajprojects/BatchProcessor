@@ -30,7 +30,6 @@ public class BatchWriter implements ItemWriter<Person> {
 
 	}
 
-	
 	@Bean
 	public ItemWriter<Person> pdfWriter() {
 		return new ItemWriter<Person>() {
@@ -53,6 +52,4 @@ public class BatchWriter implements ItemWriter<Person> {
 		};
 	}
 
-	 
-	
 }

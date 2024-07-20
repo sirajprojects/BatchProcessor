@@ -51,19 +51,19 @@ public class BatchConfig {
 		LOGGER.info("Setting up job.");
 
 		return jobBuilderFactory.get("importUserJob").incrementer(new RunIdIncrementer()).flow(step1())
-				.next(generatePdfStep()).end().build();
+				.next(step2()).end().build();
 	}
 
 	@Bean
 	public Step step1() {
 		LOGGER.info("Setting up step.");
 
-		return stepBuilderFactory.get("step1").<Person, Person>chunk(10000).reader(reader.reader())// .processor(processor)
+		return stepBuilderFactory.get("step1").<Person, Person>chunk(10000).reader(reader.reader()).processor(processor)
 				.writer(writer).build();
 	}
 
 	@Bean
-	public Step generatePdfStep() {
+	public Step step2() {
 		return stepBuilderFactory.get("generatePdfStep").<Person, Person>chunk(10000).reader(dbReader(dataSource))
 				.writer(pdfItemWriter()).build();
 	}
