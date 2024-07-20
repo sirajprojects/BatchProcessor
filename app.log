@@ -1,0 +1,70 @@
+2024-07-20 23:09:20.600  INFO 23664 --- [main] b.c.c.BatchCsvtomysqlApplication         : Starting BatchCsvtomysqlApplication using Java 17.0.4.1 on Siraj with PID 23664 (C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\batch-csvtomysql\target\classes started by DELL in C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\batch-csvtomysql)
+2024-07-20 23:09:20.602 DEBUG 23664 --- [main] b.c.c.BatchCsvtomysqlApplication         : Running with Spring Boot v2.7.1, Spring v5.3.21
+2024-07-20 23:09:20.603  INFO 23664 --- [main] b.c.c.BatchCsvtomysqlApplication         : The following 1 profile is active: "dev"
+2024-07-20 23:09:21.084  INFO 23664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20 23:09:21.147  INFO 23664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interfaces.
+2024-07-20 23:09:21.479  INFO 23664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20 23:09:21.833  INFO 23664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20 23:09:22.009  INFO 23664 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20 23:09:22.107  INFO 23664 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-07-20 23:09:22.280  INFO 23664 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-07-20 23:09:22.441  INFO 23664 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-07-20 23:09:23.014  INFO 23664 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-07-20 23:09:23.024  INFO 23664 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20 23:09:23.308  INFO 23664 --- [main] batch.com.csvtomysql.config.BatchConfig  : Setting up job.
+2024-07-20 23:09:23.313  INFO 23664 --- [main] batch.com.csvtomysql.config.BatchConfig  : Setting up step.
+2024-07-20 23:09:23.319  INFO 23664 --- [main] batch.com.csvtomysql.reader.BatchReader  : Starting to read CSV file.
+2024-07-20 23:09:23.327  INFO 23664 --- [main] batch.com.csvtomysql.reader.BatchReader  : Finished setting up CSV reader.
+2024-07-20 23:09:23.364  INFO 23664 --- [main] batch.com.csvtomysql.config.BatchConfig  : Initializing JdbcCursorItemReader with SQL query to fetch Person data.
+2024-07-20 23:09:23.366  INFO 23664 --- [main] batch.com.csvtomysql.config.BatchConfig  : JdbcCursorItemReader initialized with SQL: SELECT first_name, last_name, city FROM Person
+2024-07-20 23:09:23.380  INFO 23664 --- [main] batch.com.csvtomysql.reader.BatchReader  : Starting to read CSV file.
+2024-07-20 23:09:23.380  INFO 23664 --- [main] batch.com.csvtomysql.reader.BatchReader  : Finished setting up CSV reader.
+2024-07-20 23:09:23.432  WARN 23664 --- [main] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs. To silence this warning, set 'spring.batch.jdbc.isolation-level-for-create' to 'default'.
+2024-07-20 23:09:23.437  INFO 23664 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-20 23:09:23.602  INFO 23664 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2024-07-20 23:09:23.703  INFO 23664 --- [main] b.c.c.BatchCsvtomysqlApplication         : Started BatchCsvtomysqlApplication in 3.542 seconds (JVM running for 4.271)
+2024-07-20 23:09:23.705  INFO 23664 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2024-07-20 23:09:23.810  INFO 23664 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importUserJob]] launched with the following parameters: [{run.id=23}]
+2024-07-20 23:09:23.860  INFO 23664 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2024-07-20 23:09:29.968  INFO 23664 --- [main] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 6s108ms
+2024-07-20 23:09:29.997  INFO 23664 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [generatePdfStep]
+2024-07-20 23:09:35.115  INFO 23664 --- [main] o.s.batch.core.step.AbstractStep         : Step: [generatePdfStep] executed in 5s118ms
+2024-07-20 23:09:35.127  INFO 23664 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importUserJob]] completed with the following parameters: [{run.id=23}] and the following status: [COMPLETED] in 11s292ms
+2024-07-20 23:09:35.132  INFO 23664 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20 23:09:35.134  INFO 23664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20 23:09:35.141  INFO 23664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-20 23:10:30.402  INFO 12980 --- [main] b.c.c.BatchCsvtomysqlApplication         : Starting BatchCsvtomysqlApplication using Java 17.0.4.1 on Siraj with PID 12980 (C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\batch-csvtomysql\target\classes started by DELL in C:\Users\DELL\Documents\workspace-spring-tool-suite-4-4.23.1.RELEASE\batch-csvtomysql)
+2024-07-20 23:10:30.404 DEBUG 12980 --- [main] b.c.c.BatchCsvtomysqlApplication         : Running with Spring Boot v2.7.1, Spring v5.3.21
+2024-07-20 23:10:30.405  INFO 12980 --- [main] b.c.c.BatchCsvtomysqlApplication         : The following 1 profile is active: "dev"
+2024-07-20 23:10:30.903  INFO 12980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-20 23:10:30.964  INFO 12980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interfaces.
+2024-07-20 23:10:31.282  INFO 12980 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-20 23:10:31.656  INFO 12980 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-20 23:10:31.834  INFO 12980 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-20 23:10:31.922  INFO 12980 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2024-07-20 23:10:32.110  INFO 12980 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-07-20 23:10:32.254  INFO 12980 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-07-20 23:10:32.842  INFO 12980 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-07-20 23:10:32.854  INFO 12980 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20 23:10:33.160  INFO 12980 --- [main] batch.com.csvtomysql.config.BatchConfig  : Setting up job.
+2024-07-20 23:10:33.167  INFO 12980 --- [main] batch.com.csvtomysql.config.BatchConfig  : Setting up step.
+2024-07-20 23:10:33.173  INFO 12980 --- [main] batch.com.csvtomysql.reader.BatchReader  : Starting to read CSV file.
+2024-07-20 23:10:33.181  INFO 12980 --- [main] batch.com.csvtomysql.reader.BatchReader  : Finished setting up CSV reader.
+2024-07-20 23:10:33.210  INFO 12980 --- [main] batch.com.csvtomysql.config.BatchConfig  : Initializing JdbcCursorItemReader with SQL query to fetch Person data.
+2024-07-20 23:10:33.212  INFO 12980 --- [main] batch.com.csvtomysql.config.BatchConfig  : JdbcCursorItemReader initialized with SQL: SELECT first_name, last_name, city FROM Person
+2024-07-20 23:10:33.227  INFO 12980 --- [main] batch.com.csvtomysql.reader.BatchReader  : Starting to read CSV file.
+2024-07-20 23:10:33.228  INFO 12980 --- [main] batch.com.csvtomysql.reader.BatchReader  : Finished setting up CSV reader.
+2024-07-20 23:10:33.272  WARN 12980 --- [main] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs. To silence this warning, set 'spring.batch.jdbc.isolation-level-for-create' to 'default'.
+2024-07-20 23:10:33.277  INFO 12980 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-20 23:10:33.442  INFO 12980 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2024-07-20 23:10:33.540  INFO 12980 --- [main] b.c.c.BatchCsvtomysqlApplication         : Started BatchCsvtomysqlApplication in 3.572 seconds (JVM running for 4.225)
+2024-07-20 23:10:33.541  INFO 12980 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2024-07-20 23:10:33.650  INFO 12980 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importUserJob]] launched with the following parameters: [{run.id=24}]
+2024-07-20 23:10:33.704  INFO 12980 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2024-07-20 23:10:40.016  INFO 12980 --- [main] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 6s312ms
+2024-07-20 23:10:40.044  INFO 12980 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [generatePdfStep]
+2024-07-20 23:10:46.373  INFO 12980 --- [main] o.s.batch.core.step.AbstractStep         : Step: [generatePdfStep] executed in 6s329ms
+2024-07-20 23:10:46.389  INFO 12980 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=importUserJob]] completed with the following parameters: [{run.id=24}] and the following status: [COMPLETED] in 12s711ms
+2024-07-20 23:10:46.396  INFO 12980 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-20 23:10:46.399  INFO 12980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-20 23:10:46.415  INFO 12980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
