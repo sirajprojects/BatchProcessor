@@ -84,5 +84,4 @@ public class BatchConfig {
 	public PdfItemWriter pdfItemWriter() {
 		return new PdfItemWriter();
 	}
-
 }
